@@ -1,0 +1,7 @@
+if ps ax | grep -v grep | grep telegram-desktop > /dev/null
+then
+	echo "it's running dickhead"
+else
+	echo "what the fuck you done it's not wkring you doyle"
+	telegram-desktop -startintray &
+fi
