@@ -1,0 +1,1 @@
+nmap gm :LivedownPreview<CR>
