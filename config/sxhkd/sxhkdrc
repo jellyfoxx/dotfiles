@@ -1,0 +1,123 @@
+## bspwm commands ##
+
+# Restart/Reload BSPWM
+ctrl + super + shift + r
+	pkill -USR1 -x sxhkd && bspc wm -r
+
+## Programs ##
+
+# startmenu/rofi
+super + space
+	doas /home/eve/.config/rofi/launchers/text/launcher.sh	
+
+# Terminal
+super + Return
+	st	
+
+# dmenu
+super + d
+	dmenb	
+
+# System Monitor
+super + shift + Escape
+	kitty -e bpytop
+
+# Thunar
+super + e
+	nemo
+
+# Screenshots
+super + shift + s
+	/home/eve/Apps/.stuff/ThisGoesHardSelect
+Print + ctrl
+	/home/eve/Apps/.stuff/ThisGoesHard	
+Print
+	/home/eve/Apps/.stuff/ThisGoesHardSingle
+
+# Firefox
+super + w
+	librewolf
+super + alt + w
+	/home/eve/.pkgs/waterfox/waterfox --private-window
+
+# ani-cli
+super + a
+	kitty -e ani-cli 
+
+# scraper
+super + alt + p
+	r34scraper
+
+# ranger
+Menu 
+	kitty -e ranger
+Menu + alt
+	kitty -e ranger "/mnt/emerald/Pictures/The Stash"
+ctrl + shift + Menu
+	kitty -e ranger "/home/eve/Pictures/Wallpapers"
+shift + Menu
+	kitty -e ranger "/home/eve/Documents/Schoolwork/"
+
+# ncmpcpp	
+ctrl + Menu
+	kitty -e ncmpcpp -c /home/eve/.config/ncmpcpp/config_no_notif 
+
+
+## Windows ##
+
+# Kill focused window
+super + shift + q
+	bspc node -c
+
+# Fullscreen
+super + f
+	bspc node -t '~fullscreen'
+
+# Toggle between floating & tiled
+super + shift + space
+	bspc node -t "~"{floating,tiled}
+
+# Move window around 
+super + shift + {Left,Down,Up,Right}
+    dir={west,south,north,east}; \
+    bspc node -s "$dir.local" --follow \
+        || bspc node -m "$dir" --follow
+
+# focus the node in the given direction
+super + Left
+	bspc node -f west
+super + Down
+	bspc node -f south
+super + Up
+	bspc node -f north
+super + Right
+	bspc node -f east
+
+
+# i3 like resizing
+super + ctrl + Left
+    /bin/sh $HOME/.config/bspwm/resize/shrinkx.sh
+super + ctrl + Right
+    /bin/sh $HOME/.config/bspwm/resize/expandx.sh
+super + ctrl + Down
+    /bin/sh $HOME/.config/bspwm/resize/shrinky.sh
+super + ctrl + Up
+    /bin/sh $HOME/.config/bspwm/resize/expandy.sh
+
+# Window Switcher
+alt + Tab
+	doas /home/eve/.config/rofi/launchers/text/launcher_alttab.sh	
+
+## Workspaces ##
+
+# Focus selected desktop
+super + {1-9,0}
+    bspc desktop --focus {1-9,10}
+
+# Move window to selected desktop
+super + shift + {1-9,0}
+    bspc node --to-desktop {1-9,10} 
+
+## Power Stuff ##
+super + alt + ctrl + {r, d, s}
+	prompto {"Are you sure you would like to reboot?" "doas reboot", "Are you sure you would like to shut down?" "doas shutdown", "Are you sure you would like to suspend?" "xset dpms force off"}

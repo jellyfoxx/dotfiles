@@ -1,0 +1,150 @@
+## Terminal
+
+# launch
+super + Return
+	st
+
+## dmenu
+
+# launch
+super + d
+	dmen
+
+## GUI
+
+# System Monitor
+super + shift + Escape
+	st -e btm
+
+# CPU-X
+super + shift + alt + ctrl + C
+	st -e cpu-x -N
+
+# GUI File Manager
+super + e
+	pcmanfm
+
+# Librewolf
+super + w
+	librewolf
+
+# Waterfox
+super + alt + w
+	/home/eve/.pkgs/waterfox/waterfox --private-window
+
+# Discord (Text)
+super + shift + d
+	webcord
+
+# Discord (Voice)
+super + alt + d
+	discord --disable-gpu-sandbox --no-sandbox
+
+# Telegram
+super + shift + t
+	telegram-desktop
+
+# Pavucontrol
+super + shift + a
+	pavucontrol
+
+# Grabber
+super + alt + p
+	/home/eve/Apps/.stuff/Grabber_v7.9.0-x86_64.AppImage
+
+# Timeshift
+super + alt + t
+	doas timeshift-gtk
+
+# Spotify
+super + alt + s
+	spotify
+
+## TUI
+
+# ani-cli
+super + a
+	st -e zsh -ic 'kaasi'
+
+# lf
+Menu
+	st -e zsh -ic 'cd ~; lf'
+
+super + Menu
+	st -e zsh -ic 'cd /mnt/ruby/Pictures/The\ Stash/pictures; lf'
+
+ctrl + shift + Menu
+	st -e zsh -ic 'cd ~/Pictures/Wallpapers; lf'
+
+ctrl + Menu
+	st -e zsh -ic 'ncmpcpp --config /home/eve/.config/ncmpcpp/config_no_notif'
+
+Menu + alt
+	st -e zsh -ic 'cd /mnt/ruby/Pictures/mp4s/; lf'
+
+# Email
+super + shift + m
+	st -e zsh -ic 'neomutt'
+
+# ytfzf
+super + u
+	st -e zsh -ic 'yt'
+
+# yt-watch
+super + y
+		mpv --ytdl-format=bestvideo+bestaudio/best --fs "$(xclip -o)"
+
+# download
+ctrl + alt + d
+		yt-dlp "$(xclip -o)" -P /mnt/ruby/Pictures/mp4s; dunstify -i /home/eve/Pictures/misc/pics/konata_wee.png "File downloaded!" "Saved to MP4s folder."
+
+# manga-cli
+super + m
+	st -e zsh -ic 'manga-cli'
+## Screenshots
+
+super + shift + s
+	/home/eve/Apps/.stuff/ThisGoesHardSelect
+
+Print + ctrl
+	/home/eve/Apps/.stuff/ThisGoesHard
+
+Print
+	/home/eve/Apps/.stuff/ThisGoesHardSingle
+
+
+## Power Stuff
+
+super + alt + ctrl + {r, d, s}
+	prompto {"Are you sure you would like to reboot?" "doas reboot", "Are you sure you would like to shut down?" "doas shutdown", "Are you sure you would like to suspend?" "xset dpms force off"}
+
+## Media Keys
+
+XF86AudioLowerVolume
+	playerctl volume -2
+
+XF86AudioRaiseVolume
+	playerctl volume +2
+
+XF86AudioPlay
+	playerctl play-pause
+
+XF86AudioNext
+	playerctl next
+
+XF86AudioPrev
+	playerctl prev
+
+XF86AudioStop
+	playerctl stop
+
+## Good Night
+
+super + g + n
+	mpv 'https://youtube.com/channel/UCS-WzPVpAAli-1IfEG2lN8A' --no-resume-playback --fullscreen --sub-auto=all --profile=1080p
+
+
+## Steam
+
+super + shift + g
+	steam
